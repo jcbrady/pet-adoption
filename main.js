@@ -12,7 +12,7 @@ async function start() {
   //   console.log(weatherData.properties.periods[0].shortForecast)
   //   console.log(weatherData.properties.periods[0].windDirection)
   //   console.log(weatherData.properties.periods[0].windSpeed)
-  //   console.log(weatherData.properties.periods[0].temperature)
+  console.log("Hello from JS!")
 }
 
 start()
