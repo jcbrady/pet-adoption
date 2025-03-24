@@ -16,3 +16,28 @@ async function start() {
 }
 
 start()
+
+async function petsArea() {
+  const petsPromise = await fetch("https://learnwebcode.github.io/bootcamp-pet-data/pets.json")
+  petsData = await petsPromise.json()
+
+  //   console.log(petsPromise)
+  console.log(petsData)
+
+  petsData.forEach(pet => {
+    const card = `<div class="pet-card">
+            <div class="pet-card-text">
+              <h3>${pet.name}</h3>
+              <p class="pet-description">${pet.description}</p>
+              <p class="pet-age">${pet.birthyear}</p>
+            </div>
+            <div class="pet-card-photo">
+              <img src="images/barksalot.jpg" alt="A white fluffy dog named Barskalot" />
+            </div>
+          </div>`
+    console.log(card)
+    document.body.append(card)
+  })
+}
+
+petsArea()
