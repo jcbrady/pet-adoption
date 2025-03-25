@@ -36,8 +36,18 @@ async function petsArea() {
     clone.querySelector("h3").textContent = pet.name
     clone.querySelector(".pet-description").textContent = pet.description
     clone.querySelector(".pet-age").textContent = createAgeText(pet.birthYear)
+
+    if (!pet.photo) pet.photo = "images/fallback.jpg"
     clone.querySelector(".pet-card-photo img").src = pet.photo
     clone.querySelector(".pet-card-photo img").alt = `A ${pet.species} named ${pet.name}`
+
+    // if (!pet.photo) {
+    //   clone.querySelector(".pet-card-photo img").src = "/images/fallback.jpg"
+    //   clone.querySelector(".pet-card-photo img").alt = `no photo yet for a ${pet.species} named ${pet.name}`
+    // } else {
+    //   clone.querySelector(".pet-card-photo img").src = pet.photo
+    //   clone.querySelector(".pet-card-photo img").alt = `A ${pet.species} named ${pet.name}`
+    // }
 
     wrapper.appendChild(clone)
 
