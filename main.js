@@ -1,7 +1,7 @@
 const template = document.querySelector("#pet-card-template")
 const wrapper = document.createDocumentFragment()
-console.log(template)
-console.log(template.content.cloneNode(true))
+// console.log(template)
+// console.log(template.content.cloneNode(true))
 // console.log(wrapper)
 
 async function start() {
@@ -18,7 +18,6 @@ async function start() {
   //   console.log(weatherData.properties.periods[0].shortForecast)
   //   console.log(weatherData.properties.periods[0].windDirection)
   //   console.log(weatherData.properties.periods[0].windSpeed)
-  console.log("Hello from JS!")
 }
 
 start()
@@ -28,7 +27,7 @@ async function petsArea() {
   petsData = await petsPromise.json()
 
   //   console.log(petsPromise)
-  console.log(petsData)
+  //   console.log(petsData)
 
   petsData.forEach((pet, index) => {
     const clone = template.content.cloneNode(true)
@@ -80,4 +79,32 @@ function createAgeText(birthYear) {
   if (age < 1) {
     return "less than a year old"
   }
+}
+
+// pet filter button code
+const buttons = document.querySelectorAll(".pet-filter button")
+buttons.forEach(btn => {
+  btn.addEventListener("click", handleButtonClick)
+  // e => {
+  // console.log(e.target.classList.value)
+
+  // if (e.target.classList.value == "") {
+  //   e.target.classList.add("active")
+  //   buttons.forEach(b => {
+  //     b.classList.remove("active")
+  //   })
+  // } else {
+  //   e.target.classList.remove("active")
+  // }
+  //   })
+})
+
+function handleButtonClick(e) {
+  // remove active class from any and all buttons
+  buttons.forEach(el => el.classList.remove("active"))
+
+  // add active class to the button that just got clicked
+  e.target.classList.add("active")
+
+  // actually filter the pets
 }
